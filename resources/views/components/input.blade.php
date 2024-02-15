@@ -7,7 +7,7 @@
 @else
     <div class="form-group">
         <label for="{{$name}}">{{$label ?? null}}</label>
-        <input class="form-control @error($name) is-invalid @enderror" name="{{$name}}" value="{{$value}}" type="{{$type ?? null}}">
+        <input class="form-control @error($name) is-invalid @enderror" name="{{$name}}" value="{{$value ?? null}}" type="{{$type ?? null}}">
     </div>
 
 @endif

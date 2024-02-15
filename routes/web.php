@@ -18,6 +18,10 @@ Route::get('/', [BlogController::class, 'index'])->name('blog.index');
 Route::get('publication/creer', [BlogController::class, 'create'])->name('post.create')->middleware('auth');
 Route::post('publication/creer', [BlogController::class, 'store'])->middleware('auth');
 Route::get('publication/{post}', [BlogController::class, 'show'])->name('post.show');
+Route::delete('publication/{post}/supprimer', [BlogController::class, 'destroy'])->name('post.delete')->middleware('auth');
+Route::get('publication/{post}/modifier', [BlogController::class, 'edit'])->name('post.edit')->middleware('auth');
+Route::put('publication/{post}/modifier', [BlogController::class, 'update'])->middleware('auth')->name('post.update');
+
 // *** Authentification
 
 
