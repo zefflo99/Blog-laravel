@@ -19,8 +19,8 @@
             </div>
         @endguest
         @auth()
-            <div>
-                <a href="" class="btn btn-warning">Crée</a>
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="{{route('post.create')}}" class="btn btn-warning">Creer</a>
                 <form action="{{route('auth.logout')}}" method="post">
                     @csrf
                     @method('delete')

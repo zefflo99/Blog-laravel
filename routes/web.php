@@ -15,6 +15,8 @@ use App\Http\Controllers\auth\authController;
 */
 
 Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+Route::get('publication/creer', [BlogController::class, 'create'])->name('post.create')->middleware('auth');
+Route::post('publication/creer', [BlogController::class, 'store'])->middleware('auth');
 
 // *** Authentification
 
