@@ -18,6 +18,12 @@ class BlogController extends Controller
         return view('blog.index' , compact('posts'));
     }
 
+    public function show(Post $post)
+    {
+        $post = $post->load('user');
+        return view('blog.show', compact('post'));
+    }
+
     public function create()
     {
 
