@@ -45,6 +45,7 @@ class BlogController extends Controller
 
     public function update(UpdatePost $request, Post $post)
     {
+        $this->authorize('update', $post);
         if($request->file('image')){
             Storage::disk('public')->delete($post->image);
             $path = $request->file('image')->store('post', 'public');
@@ -60,6 +61,7 @@ class BlogController extends Controller
 
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
         Storage::disk('public')->delete($post->image);
         $post->delete();
         return redirect()->route('blog.index')->with('ok', 'Publication supprimer');
@@ -69,6 +71,7 @@ class BlogController extends Controller
 
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
         return view('blog.edit', compact('post'));
     }
 }

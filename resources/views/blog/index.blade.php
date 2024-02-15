@@ -12,7 +12,7 @@
                 <li>
                     <div class="card">
                         <div class="card-header">
-                            Auteur: {{ $post->user->first_name }} {{ $post->user->last_name }}
+                            Auteur: {{$post->user->firstname}} {{ $post->user->lastname}}
                         </div>
                         <div class="card-body">
                             <h4>{{$post->title}}</h4>
